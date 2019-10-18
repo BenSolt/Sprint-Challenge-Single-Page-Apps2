@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Axios from "axios";
 import {Link} from 'react-router-dom';
 import CharacterCard from "./CharacterCard";
-
+import SearchForm from './SearchForm';
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
@@ -22,8 +22,8 @@ export default function CharacterList() {
 Axios
 .get('https://rickandmortyapi.com/api/character/')
 .then(response => {
-  setCharacters(response.data)
-  console.log(response)
+  setCharacters(response.data.results)
+  console.log(response.data.results)
 })
 .catch(error => {
   console.error(error);
@@ -35,6 +35,9 @@ Axios
   return (
     <section className="character-list">
       {/* <h2>TODO: `array.map()` over your state here!</h2> */}
+
+      <SearchForm charName={characters}/>
+
       {characters.map(character => {
 
         return(
@@ -42,6 +45,8 @@ Axios
           <Link to={`/components/${character.id}`}>
             <CharacterCard key={character.id} char={character} />
             </Link>
+         
+
         )
 
       })}

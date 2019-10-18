@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function SearchForm() {
+export default function SearchForm(props) {
 
 
   const [searchText, setSearchText] = useState("");
@@ -11,12 +11,12 @@ export default function SearchForm() {
     setSearchText(e.target.value);
   };
 
-  useEffect(() => {
-    const results = name.filter(person =>
-      person.toLowerCase().includes(searchText)
-    );
-    setName(results);
-  }, [searchText]);
+  // useEffect(() => {
+  //   const results = props.charName.filter(person =>
+  //     person.toLowerCase().includes(searchText)
+  //   );
+  //   setSearchResult(results);
+  // }, [searchText]);
 
 
 
@@ -24,16 +24,16 @@ export default function SearchForm() {
   return (
     <section className="search-form">
      
-     <form onSubmit={() => onSearch(name)}>
-        <input
+     <form>
+        <input className='input'
           type='text'
-          placeholder="Search Name"
+          placeholder="Search Character Name"
           name="name"
           onChange={handleChange}
           value={searchText}
           
         />
-        <button type="submit">Search</button>
+        {/* <button type="submit">Search</button> */}
 
 
         <ul>{searchResult.map(item => (

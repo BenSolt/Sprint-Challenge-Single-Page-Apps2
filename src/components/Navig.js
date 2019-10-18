@@ -24,7 +24,7 @@ return(
 
     <NavLink className='navlink' to='/'>HOME</NavLink>
 
-    <NavLink className='navlink' to='/character'>Characters</NavLink>
+    <NavLink className='navlink' to='/characters'>Characters</NavLink>
 
     </nav>
 

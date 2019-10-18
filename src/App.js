@@ -9,7 +9,7 @@ import SearchForm from './components/SearchForm';
 // ROUTE
 import { Route } from "react-router-dom";
 import CharacterList from "./components/CharacterList.js";
-import SearchForm from "./components/SearchForm.js";
+
 
 
 export default function App() {
@@ -17,11 +17,9 @@ export default function App() {
     <main>
       <Header/>
       <Navig/>
-      <SearchForm/>
 
-
-      {/* <Route exact path='/' component={WelcomePage}/> */}
-      {/* <Route path='/characters' component={CharacterList} */}
+      <Route exact path="/" component={WelcomePage}/>
+      <Route path="/characters" component={CharacterList}/>
 
     </main>
   );
