@@ -29,6 +29,11 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 > Answer:
 
+- It offers control over your site URL & content without necessarily having to wait for a server to respond with      content. It is designed to mimic the appearance of traditional multi page websites.
+-	Page will not refresh with each button click, since all information is right there.
+-	Initial load time of site is longer then server side routing, but afterword’s it is faster.
+
+
 ## Project Set Up
 
 Follow these steps to set up and work on your project:
