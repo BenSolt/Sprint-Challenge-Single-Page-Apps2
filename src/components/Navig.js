@@ -5,10 +5,11 @@ import styled from 'styled-components'
 // Styled component
 const NavigDiv = styled.div`
 display: flex;
+justify-content: center;
 background: lightblue;
 `;
 
-const navlink = styled.a`
+const navlink = styled.div`
 display: flex;
 background: red;
 text-deceration: none;

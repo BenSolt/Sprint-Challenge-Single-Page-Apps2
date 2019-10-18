@@ -12,7 +12,8 @@ export default function CharacterList() {
 
   const [characters, setCharacters] = useState([]);
 
-  const [search, setSearch] = useState("");
+  const [searchResult, setSearchResult] = useState("");
+
 
 
   useEffect(() => {
@@ -22,21 +23,45 @@ export default function CharacterList() {
 Axios
 .get('https://rickandmortyapi.com/api/character/')
 .then(response => {
-  setCharacters(response.data.results)
+   const res = response.data.results.filter(char =>
+       char.name.toLowerCase().includes(searchResult.toLowerCase())
+    );
+    
   console.log(response.data.results)
-})
-.catch(error => {
-  console.error(error);
-});
+    // setCharacters(response.data.results);
+    setCharacters(res);
+// .catch(error => {
+//   console.error(error);
 
+  });
+}, [searchResult]);
 
-  }, []);
+const handleChange = e => {
+  console.log(e.target.value);
+  setSearchResult(e.target.value);
+};
+
 
   return (
-    <section className="character-list">
+    <section className="character-list grid-view ">
       {/* <h2>TODO: `array.map()` over your state here!</h2> */}
 
-      <SearchForm charName={characters}/>
+      {/* <SearchForm searchResult2={searchResult}/> */}
+
+
+      
+     <form className="search-form">
+        <input className='input'
+          type='text'
+          placeholder="Search Character Name"
+          name="name"
+          onChange={handleChange}
+          value={searchResult}
+        />
+        {/* <button type="submit">Search</button> */}
+        
+      </form>
+     
 
       {characters.map(character => {
 

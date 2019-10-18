@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 export default function SearchForm(props) {
 
 
-  const [searchText, setSearchText] = useState("");
-   const [searchResult, setSearchResult] = useState([]);
+   const [searchText, setSearchText] = useState("");
+  //  const [searchResult, setSearchResult] = useState([]);
 
    const handleChange = e => {
     console.log(e.target.value);
@@ -12,8 +12,8 @@ export default function SearchForm(props) {
   };
 
   // useEffect(() => {
-  //   const results = props.charName.filter(person =>
-  //     person.toLowerCase().includes(searchText)
+  //   const results = response.data.filter(character =>
+  //     character.name.toLowerCase().includes(searchText)
   //   );
   //   setSearchResult(results);
   // }, [searchText]);
@@ -30,13 +30,13 @@ export default function SearchForm(props) {
           placeholder="Search Character Name"
           name="name"
           onChange={handleChange}
-          value={searchText}
+          value={props.searchResult2}
           
         />
         {/* <button type="submit">Search</button> */}
 
 
-        <ul>{searchResult.map(item => (
+        <ul>{props.searchResult2.map(item => (
           <li>{item}</li>
         ))}</ul>
         

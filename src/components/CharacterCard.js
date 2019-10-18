@@ -11,9 +11,10 @@ export default function CharacterCard(props) {
       <CardImg src={props.char.image} alt="Card image cap" />
       <CardBody>
         <CardTitle>{props.char.name}</CardTitle>
-        <CardSubtitle>{props.char.name}</CardSubtitle>
-        <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-        
+        <CardSubtitle>{props.char.gender}</CardSubtitle>
+        <CardSubtitle>{props.char.species}</CardSubtitle>
+        <CardSubtitle>{props.char.status}</CardSubtitle>
+      
       </CardBody>
     </Card>
   </div>
